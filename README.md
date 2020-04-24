@@ -2,7 +2,7 @@
 Repository for the course of Mobile Computing
 
 ## Homework 1: HW1_Dialler
-Build an app that acts as a dialler, with a “keypad” to enter the numberto call.
+Build an app that acts as a dialler, with a “keypad” to enter the number to call.
 
 Start with the simplest approach possible. When you press the dial button, a call
 should be started (just hand-over to the “real” built-in dialler, using an [implicit Intent](https://developer.android.com/guide/components/intents-common?hl=en#Phone)).
