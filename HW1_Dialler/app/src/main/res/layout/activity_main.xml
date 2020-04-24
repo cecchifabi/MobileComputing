@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:isScrollContainer="true"
     tools:context=".MainActivity">
 
     <Button
@@ -13,6 +14,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/_9"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_hash"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -24,6 +26,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
         android:background="#FF9800"
+        android:longClickable="true"
+        android:onClick="speedDial1"
         android:text="@string/sd1"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_one"
@@ -36,6 +40,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/_4"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_seven"
         app:layout_constraintStart_toStartOf="parent" />
@@ -47,6 +52,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/_asterisk"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_plus"
         app:layout_constraintStart_toStartOf="parent" />
@@ -59,6 +65,7 @@
         android:layout_marginBottom="10dp"
         android:background="#FF9800"
         android:text="@string/sd3"
+        android:onClick="speedDial3"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_three"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -70,6 +77,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/_hash"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_plus"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -81,6 +89,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/_7"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_asterisk"
         app:layout_constraintStart_toStartOf="parent" />
@@ -91,6 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="@string/_8"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_zero"
         app:layout_constraintEnd_toStartOf="@+id/btn_nine"
@@ -103,6 +113,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/_3"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_six"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -114,6 +125,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/_1"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_four"
         app:layout_constraintStart_toStartOf="parent" />
@@ -124,6 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="@string/_2"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_five"
         app:layout_constraintEnd_toStartOf="@+id/btn_three"
@@ -136,6 +149,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/_6"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_nine"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -146,6 +160,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="@string/_5"
+        android:onClick="btnPressed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_eight"
         app:layout_constraintEnd_toStartOf="@+id/btn_six"
@@ -155,13 +170,16 @@
         android:id="@+id/btn_dial"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
         android:layout_marginBottom="10dp"
         android:background="#4CAF50"
         android:contentDescription="@string/_call"
+        android:onClick="dial"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btn_hash"
-        app:layout_constraintStart_toStartOf="@+id/btn_zero"
+        app:layout_constraintEnd_toStartOf="@+id/btn_canc"
+        app:layout_constraintStart_toEndOf="@+id/btn_plus"
         app:layout_constraintTop_toBottomOf="@+id/btn_zero"
         app:srcCompat="@android:drawable/stat_sys_phone_call" />
 
@@ -170,6 +188,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:onClick="btnPressed"
         android:text="@string/_0"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_plus"
@@ -183,6 +202,7 @@
         android:layout_marginBottom="10dp"
         android:background="#FF9800"
         android:text="@string/sd2"
+        android:onClick="speedDial2"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_two"
         app:layout_constraintEnd_toStartOf="@+id/sd_3"
@@ -190,7 +210,7 @@
 
     <EditText
         android:id="@+id/number"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -198,8 +218,10 @@
         android:autofillHints=""
         android:ems="10"
         android:inputType="phone"
+        android:textAlignment="center"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/sd_2"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -208,9 +230,34 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
+        android:onClick="btnPressed"
         android:text="@string/_plus"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_canc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="canc"
+        android:text="@string/_C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="del"
+        app:layout_constraintBottom_toTopOf="@+id/sd_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/number"
+        app:srcCompat="@android:drawable/ic_input_delete" />
 
 </android.support.constraint.ConstraintLayout>

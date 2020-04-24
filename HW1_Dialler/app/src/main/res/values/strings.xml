@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HW1_Dialler</string>
+    <string name="app_name">HW1 Dialler</string>
     <string name="_9">9</string>
     <string name="_4">4</string>
     <string name="_asterisk">*</string>
@@ -17,4 +17,5 @@
     <string name="sd2">SD2</string>
     <string name="sd3">SD3</string>
     <string name="_plus">+</string>
+    <string name="_C">C</string>
 </resources>
