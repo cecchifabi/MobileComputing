@@ -5,31 +5,35 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class SecondActivity extends AppCompatActivity {
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
-    public static final String EXTRA_REPLY = "com.example.android.twoactivities.extra.REPLY";
-    private EditText mReply;
+    private String city;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         Intent intent = getIntent();
-        //String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        //TextView textView = findViewById(R.id.textMessage);
-        //textView.setText(message);
-        //mReply = findViewById(R.id.editText_second);
+        this.city = intent.getStringExtra("CITY");
 
+        // Pass the city to FragmentB
+        Toast.makeText(this, city, Toast.LENGTH_SHORT);
+        displayFragment();
     }
 
-    public void reply(View view) {
-        String reply = mReply.getText().toString();
-        Intent replyIntent = new Intent();
-        replyIntent.putExtra(EXTRA_REPLY, reply);
-        setResult(RESULT_OK, replyIntent);
-        finish();
+    public void displayFragment() {
+        FragmentB fB = FragmentB.newInstance(city);
+
+        // Get the FragmentManager and start a transaction.
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        // Add the SimpleFragment.
+        fragmentTransaction.add(R.id.fragment_container, fB).addToBackStack(null).commit();
     }
 }

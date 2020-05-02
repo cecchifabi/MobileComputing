@@ -1,14 +1,23 @@
 package com.example.hw2_weather_forecasts;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.LinkedList;
@@ -24,6 +33,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.WordVi
         public final TextView wordItemView;
         final CityListAdapter mAdapter;
         private Context context;
+        private FragmentB fB = null;
 
         public WordViewHolder(View itemView, CityListAdapter adapter, Context context) {
             super(itemView);
@@ -40,9 +50,28 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.WordVi
             // Use that to access the affected item in mWordList.
             String element = mCityList.get(mPosition);
 
-            // Only if I'm not on a tablet
-            Intent intent = new Intent(context, SecondActivity.class);
-            context.startActivity(intent, new Bundle());
+            int screenSize = context.getResources().getConfiguration().screenLayout &
+                    Configuration.SCREENLAYOUT_SIZE_MASK;
+            int orient = context.getResources().getConfiguration().orientation;
+
+            if(screenSize < Configuration.SCREENLAYOUT_SIZE_LARGE && orient != Configuration.ORIENTATION_LANDSCAPE) {
+                // Only if I'm not on a tablet
+                Intent intent = new Intent(context, SecondActivity.class);
+                intent.putExtra("CITY", element);
+                context.startActivity(intent, new Bundle());
+            }
+            else {
+                // I'm on a tablet: just pass the city name to FragmentB
+
+                // Get the FragmentManager and start a transaction.
+                AppCompatActivity host = (AppCompatActivity) v.getContext();
+                FragmentManager fragmentManager = host.getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                fB = FragmentB.newInstance(element);
+                // Replace the fragment.
+                fragmentTransaction.replace(R.id.frag_b_container, fB).addToBackStack(null).commit();
+            }
         }
     }
 
