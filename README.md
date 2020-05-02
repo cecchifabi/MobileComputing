@@ -25,5 +25,5 @@ The app should make use of fragments (and RecyclerView) and offer two layout arr
 (“landscape” and large diagonal; “normal” screen). The weather forecast content should 
 be obtained by invoking an external API. 
 
-A sample project [NextWeather](https://gitlab.com/ico_gl/ua-cm-gs) is available to demonstrate the use of the IPMAAPI
+A sample project [NextWeather](https://gitlab.com/ico_gl/ua-cm-gs) is available to demonstrate the use of the IPMA API
 (using the [Retrofit library](https://guides.codepath.com/android/Consuming-APIs-with-Retrofit)).
