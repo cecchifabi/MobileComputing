@@ -41,12 +41,12 @@
         android:id="@+id/time_label"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="Time"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timezone" />
+        app:layout_constraintBottom_toBottomOf="@+id/city_name"
+        app:layout_constraintStart_toStartOf="@+id/current_time"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/current_time"
@@ -54,50 +54,42 @@
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time_label" />
-
-    <TextView
-        android:id="@+id/cloudiness_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Cloudiness"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_humidity" />
+        app:layout_constraintBottom_toBottomOf="@+id/timezone"
+        app:layout_constraintStart_toEndOf="@+id/coordinates"
+        app:layout_constraintTop_toBottomOf="@+id/city_name" />
 
     <TextView
         android:id="@+id/temperature_label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:text="Temperature"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_time" />
+        app:layout_constraintBottom_toBottomOf="@+id/time_label"
+        app:layout_constraintStart_toStartOf="@+id/current_temperature"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/current_temperature"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/temperature_label" />
+        app:layout_constraintBottom_toBottomOf="@+id/current_time"
+        app:layout_constraintStart_toEndOf="@+id/current_time"
+        app:layout_constraintTop_toTopOf="@+id/current_time"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/pressure_label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="Pressure"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_temperature" />
+        app:layout_constraintTop_toBottomOf="@+id/timezone" />
 
     <TextView
         android:id="@+id/current_pressure"
@@ -111,30 +103,37 @@
     <TextView
         android:id="@+id/humidity_label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:text="Humidity"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_pressure" />
+        app:layout_constraintStart_toStartOf="@+id/time_label"
+        app:layout_constraintTop_toBottomOf="@+id/current_time" />
 
     <TextView
         android:id="@+id/current_humidity"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/humidity_label"
         app:layout_constraintTop_toBottomOf="@+id/humidity_label" />
+
+    <TextView
+        android:id="@+id/cloudiness_label"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:text="Cloudiness"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/temperature_label"
+        app:layout_constraintTop_toBottomOf="@+id/current_temperature" />
 
     <TextView
         android:id="@+id/current_cloudiness"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/cloudiness_label"
         app:layout_constraintTop_toBottomOf="@+id/cloudiness_label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
