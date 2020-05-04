@@ -24,7 +24,7 @@ import java.util.LinkedList;
 
 public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.WordViewHolder> {
 
-    private final LinkedList<String> mCityList;
+    private final LinkedList<City> mCityList;
     private LayoutInflater mInflater;
     private Context context;
 
@@ -48,17 +48,22 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.WordVi
             // Get the position of the item that was clicked.
             int mPosition = getLayoutPosition();
             // Use that to access the affected item in mWordList.
-            String element = mCityList.get(mPosition);
+            City element = mCityList.get(mPosition);
 
             int screenSize = context.getResources().getConfiguration().screenLayout &
                     Configuration.SCREENLAYOUT_SIZE_MASK;
             int orient = context.getResources().getConfiguration().orientation;
 
-            if(screenSize < Configuration.SCREENLAYOUT_SIZE_LARGE && orient != Configuration.ORIENTATION_LANDSCAPE) {
+            if(screenSize < Configuration.SCREENLAYOUT_SIZE_LARGE /*&& orient != Configuration.ORIENTATION_LANDSCAPE*/) {
                 // Only if I'm not on a tablet
                 Intent intent = new Intent(context, SecondActivity.class);
-                intent.putExtra("CITY", element);
-                context.startActivity(intent, new Bundle());
+                Bundle extras = new Bundle();
+                extras.putString("CITY", element.getName());
+                extras.putDouble("LAT", element.getLat());
+                extras.putDouble("LON", element.getLon());
+                intent.putExtras(extras);
+
+                context.startActivity(intent);
             }
             else {
                 // I'm on a tablet: just pass the city name to FragmentB
@@ -75,7 +80,7 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.WordVi
         }
     }
 
-    public CityListAdapter(FragmentA context, LinkedList<String> wordList) {
+    public CityListAdapter(FragmentA context, LinkedList<City> wordList) {
         mInflater = LayoutInflater.from(context.getActivity());
         this.mCityList = wordList;
         this.context = context.getContext();
@@ -90,8 +95,8 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.WordVi
 
     @Override
     public void onBindViewHolder(@NonNull CityListAdapter.WordViewHolder holder, int position) {
-        String mCurrent = mCityList.get(position);
-        holder.wordItemView.setText(mCurrent);
+        City mCurrent = mCityList.get(position);
+        holder.wordItemView.setText(mCurrent.getName());
     }
 
     @Override

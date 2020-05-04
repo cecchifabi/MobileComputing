@@ -2,6 +2,7 @@ package com.example.hw2_weather_forecasts;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,17 +13,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class SecondActivity extends AppCompatActivity {
-    private String city;
+    private City city;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Intent intent = getIntent();
-        this.city = intent.getStringExtra("CITY");
 
-        // Pass the city to FragmentB
-        Toast.makeText(this, city, Toast.LENGTH_SHORT);
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        String tmp = extras.getString("CITY");
+        double tmp1 = extras.getDouble("LAT");
+        double tmp2 = extras.getDouble("LON");
+        this.city = new City(tmp, tmp1, tmp2);
+
         displayFragment();
     }
 
