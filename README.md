@@ -28,4 +28,6 @@ be obtained by invoking an external API.
 A sample project [NextWeather](https://gitlab.com/ico_gl/ua-cm-gs) is available to demonstrate the use of the IPMA API
 (using the [Retrofit library](https://guides.codepath.com/android/Consuming-APIs-with-Retrofit)).
 
+I used the following API: [OpenWeather One Call API](https://openweathermap.org/api/one-call-api).
+
 For the API calls, I used [Fast Android Networking](https://medium.com/@filswino/making-rest-calls-download-upload-files-with-one-line-of-code-on-android-no-retrofit-needed-5c0574f41476).
